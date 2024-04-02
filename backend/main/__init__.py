@@ -15,16 +15,19 @@ def create_app():
     #cargamos las variables del archivo .env
     load_dotenv()
  
-    api.add_resource(resources.UsuariosResource, '/usuarios')
-    api.add_resource(resources.UsuarioResource, '/usuario/<:id>')
-    api.add_resource(resources.Libros, '/libros')
-    api.add_resource(resources.Libro, '/libro/<:id>')
-    api.add_resource(resources.SignIn, '/signin')
-    api.add_resource(resources.Login, '/login')
-    api.add_resource(resources.Notificaciones, '/notificaciones')
-    api.add_resource(resources.Configuracion, '/configuracion')
-    api.add_resource(resources.Comentarios, '/comentarios')
-    api.add_resource(resources.Valoracion, '/valoracion')
+    api.add_resource(resources.UsuariosResources, '/usuarios')
+    api.add_resource(resources.UsuarioResources, '/usuario/<id>')
+    api.add_resource(resources.LibrossResources, '/libros')
+    api.add_resource(resources.LibroResources, '/libro/<id>')
+    api.add_resource(resources.SignInResources, '/signin')
+    api.add_resource(resources.LoginResources, '/login')
+    api.add_resource(resources.NotificacionesResources, '/notificaciones')
+    api.add_resource(resources.ConfiguracionResources, '/configuracion/<id>')
+    api.add_resource(resources.ConfiguracionesResources, '/configuraciones')
+    api.add_resource(resources.ComentariosResources, '/comentarios')
+    api.add_resource(resources.ValoracionResources, '/valoracion')
+    api.add_resource(resources.PrestamosResources, '/prestamos')
+    api.add_resource(resources.PrestamoResources, '/prestamo/<id>')
     
     #Cargar la aplicacion en la API de Flask Restful
     #es para que la aplicacion de flask funcione como API

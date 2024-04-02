@@ -1,51 +1,46 @@
-from flask_restful import Resource, reqparse
-from flask import request
+from flask import Flask, request
+from flask_restful import Resource, Api, reqparse
 
-# Datos de prueba en JSON
 USUARIOS = {
     1: {'nombre': 'Juan', 'rol': 'ADMIN'},
     2: {'nombre': 'María', 'rol': 'BIBLIOTECARIO'}
 }
 
-class Usuarios(Resource):
-    # Obtener listado de usuarios
-    def get(self):
-        if request.args.get('rol') == 'ADMIN':
-            return USUARIOS
-        return 'Unauthorized', 401
-
-    # Crear un usuario
-    def post(self):
-        parser = reqparse.RequestParser()
-        parser.add_argument('nombre', type=str, help='Nombre del usuario', required=True)
-        parser.add_argument('rol', type=str, help='Rol del usuario', required=True)
-        args = parser.parse_args()
-        id = int(max(USUARIOS.keys())) + 1
-        USUARIOS[id] = {'nombre': args['nombre'], 'rol': args['rol']}
-        return USUARIOS[id], 201
-
 # Defino el recurso Usuario
 class Usuario(Resource):
-    # Obtener un usuario
+    # Obtener un usuario por ID
     def get(self, id):
-        if int(id) in USUARIOS and request.args.get('rol') == 'ADMIN':
+        if int(id) in USUARIOS:
             return USUARIOS[int(id)]
-        return 'Unauthorized', 401
+        return '', 404
 
-    # Editar un usuario
+    # Eliminar un usuario por ID
+    def delete(self, id):
+        if int(id) in USUARIOS:
+            del USUARIOS[int(id)]
+            return '', 204
+        return '', 404
+
+    # Modificar un usuario por ID
     def put(self, id):
-        if int(id) in USUARIOS and request.args.get('rol') == 'ADMIN':
-            parser = reqparse.RequestParser()
-            parser.add_argument('nombre', type=str, help='Nombre del usuario')
-            parser.add_argument('rol', type=str, help='Rol del usuario')
-            args = parser.parse_args()
+        if int(id) in USUARIOS:
             user = USUARIOS[int(id)]
-            if 'nombre' in args:
-                user['nombre'] = args['nombre']
-            if 'rol' in args:
-                user['rol'] = args['rol']
+            data = request.get_json()
+            user.update(data)
             return '', 201
+        return '', 404
 
-        return 'Unauthorized', 401
+# Colección de usuarios
+class Usuarios(Resource):
+    # Obtener lista de usuarios
+    def get(self):
+        return USUARIOS
+
+    # Insertar un nuevo usuario
+    def post(self):
+        user = request.get_json()
+        id = int(max(USUARIOS.keys())) + 1
+        USUARIOS[id] = user
+        return USUARIOS[id], 201
 
     

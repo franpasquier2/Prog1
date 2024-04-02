@@ -13,6 +13,7 @@ from .cuenta import Login as LoginResources
 from .notificacion import Notificaciones as NotificacionesResources
 
 from .otros import Configuracion as ConfiguracionResources
+from .otros import Configuraciones as ConfiguracionesResources
 from .otros import Valoracion as ValoracionResources
 from .otros import Comentarios as ComentariosResources
 
