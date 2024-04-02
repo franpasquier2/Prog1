@@ -1,11 +1,10 @@
 /bin
-
 /include
-
 /lib64
-
 /lib
-
 pyvenv.cfg
-
 .env
+__pycache__/*
+*/__pycache__/*
+/backend/main/__pycache__
+/backend/main/resources/__pycache__
