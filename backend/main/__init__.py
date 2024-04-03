@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # La carpeta main va a tener todo el codigo menos app.py
 from flask import Flask
 from dotenv import load_dotenv
@@ -35,6 +34,3 @@ def create_app():
     api.init_app(app)
     #Por ultimo retornamos la aplicacion iniializada
     return app
-=======
-    
->>>>>>> Nueva Rama toneatti
