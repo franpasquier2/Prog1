@@ -1,4 +1,4 @@
-from flask_restful import Resource, reqparse #reqparse: analizar y validar los datos que llegan en una solicitud HTTP
+from flask_restful import Resource
 from flask import request
 
 

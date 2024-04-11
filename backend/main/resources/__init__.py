@@ -12,8 +12,8 @@ from .cuenta import Login as LoginResources
 
 from .notificacion import Notificaciones as NotificacionesResources
 
-from .otros import Configuracion as ConfiguracionResources
-from .otros import Configuraciones as ConfiguracionesResources
-from .otros import Valoracion as ValoracionResources
-from .otros import Comentarios as ComentariosResources
+from .configuracion import Configuracion as ConfiguracionResources
+from .configuracion import Configuraciones as ConfiguracionesResources
+from .valoracion import Valoracion as ValoracionResources
+from .comentario import Comentarios as ComentariosResources
 

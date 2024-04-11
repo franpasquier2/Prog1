@@ -1,5 +1,7 @@
 from flask import Flask, request
-from flask_restful import Resource, Api, reqparse
+from flask_restful import Resource
+from .. import db
+from main.models.usuario import Usuario as UserModel
 
 USUARIOS = {
     1: {'nombre': 'Juan', 'rol': 'ADMIN'},
@@ -8,11 +10,14 @@ USUARIOS = {
 
 # Defino el recurso Usuario
 class Usuario(Resource):
-    # Obtener un usuario por ID
+
     def get(self, id):
-        if int(id) in USUARIOS:
-            return USUARIOS[int(id)]
-        return '', 404
+
+        usuario = db.session.query(UserModel).get_or_404(id)
+        return usuario.to_json()
+    #    if int(id) in USUARIOS:
+    #       return USUARIOS[int(id)]
+    #    return '', 404
 
     # Eliminar un usuario por ID
     def delete(self, id):
