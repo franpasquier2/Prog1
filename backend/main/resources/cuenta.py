@@ -1,7 +1,6 @@
 from flask_restful import Resource
 from flask import request
 
-
 CUENTAS = {
     1: {"nombre": "Usuario1", "rol": "USER", "password": "123456"},
     2: {"nombre": "Usuario2", "rol": "ADMIN", "password": "abcdef"}

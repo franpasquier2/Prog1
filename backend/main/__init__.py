@@ -20,6 +20,7 @@ def create_app():
         os.mknod(os.getenv('DATABASE_PATH')+os.getenv('DATABASE_NAME'))
         
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    
 
 
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////'+os.getenv('DATABASE_PATH')+os.getenv('DATABASE_NAME')
@@ -43,6 +44,5 @@ def create_app():
     api.add_resource(resources.PrestamoResources, '/prestamo/<id>')
     
     api.init_app(app)
-
 
     return app
