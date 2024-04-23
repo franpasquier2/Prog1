@@ -14,6 +14,10 @@ from .notificacion import Notificaciones as NotificacionesResources
 
 from .configuracion import Configuracion as ConfiguracionResources
 from .configuracion import Configuraciones as ConfiguracionesResources
-from .valoracion import Valoracion as ValoracionResources
+
+from .valoracion import Valoracion as ValoracionesResources
+
 from .comentario import Comentarios as ComentariosResources
 
+from .autor import Autor as AutorResources
+from .autor import Autores as AutoresResources

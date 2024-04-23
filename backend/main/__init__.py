@@ -20,7 +20,6 @@ def create_app():
         os.mknod(os.getenv('DATABASE_PATH')+os.getenv('DATABASE_NAME'))
         
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    
 
 
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////'+os.getenv('DATABASE_PATH')+os.getenv('DATABASE_NAME')
@@ -39,10 +38,14 @@ def create_app():
     api.add_resource(resources.ConfiguracionResources, '/configuracion/<id>')
     api.add_resource(resources.ConfiguracionesResources, '/configuraciones')
     api.add_resource(resources.ComentariosResources, '/comentarios')
-    api.add_resource(resources.ValoracionResources, '/valoracion')
+    api.add_resource(resources.ValoracionesResources, '/valoraciones')
     api.add_resource(resources.PrestamosResources, '/prestamos')
     api.add_resource(resources.PrestamoResources, '/prestamo/<id>')
+    api.add_resource(resources.AutoresResources, '/autores')
+    api.add_resource(resources.AutorResources, '/autor/<id>')
+
     
     api.init_app(app)
+
 
     return app
