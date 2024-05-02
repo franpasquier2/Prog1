@@ -7,6 +7,12 @@ class Prestamo(db.Model):
     monto = db.Column(db.Float, nullable=False)
     fecha_dev = db.Column(db.DateTime, nullable=False)
     fecha = db.Column(db.DateTime, nullable=False)
+    
+#Relación un usuario a muchos prestamos
+    usuario = db.relationship('Usuario', back_populates='prestamos', uselist=False, single_parent=True)
+    
+    def _repr_(self):                    
+        return '<Prestamo: %r >' % (self.monto)
 
     def to_json(self):
         prestamo_json = {
@@ -18,6 +24,14 @@ class Prestamo(db.Model):
         }
         return prestamo_json
     
+    def to_json_short(self):
+        prestamo_json={
+            'id_prestamo':self.id_prestamo,
+            'id_usuario':self.id_usuario,
+            'monto':self.monto
+        }
+        return prestamo_json
+
     @staticmethod
     #Convertir JSON a objeto
     def from_json(Prestamo_json):

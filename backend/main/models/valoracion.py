@@ -5,7 +5,13 @@ class Valoracion(db.Model):
     id_libro = db.Column(db.Integer, db.ForeignKey('libro.id_libro'), nullable=False)
     id_usuario = db.Column(db.Integer, db.ForeignKey('usuario.id_usuario'), nullable=False)
     puntuacion = db.Column(db.Integer, nullable=False)
-
+    
+# Relación un libro a una valoracion
+    libro = db.relationship('Libro', back_populates='valoracion', cascade="all, delete-orphan",uselist=False, single_parent=True)
+    
+    def __repr__(self):                    
+        return '<Valoracion: %r >' % (self.puntuacion)
+    
     def to_json(self):
         valoracion_json = {
             'id_valoracion': self.id_valoracion,
@@ -15,6 +21,13 @@ class Valoracion(db.Model):
         }
         return valoracion_json
     
+    def to_json_short(self):
+        valoracion_json={
+            'id_valoracion':self.id_valoracion,
+            'puntuacion':self.puntuacion
+        }
+        return valoracion_json
+
     @staticmethod
     #Convertir JSON a objetoimport datetime
     def from_json(Valoracion_json):
