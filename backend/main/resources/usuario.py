@@ -13,23 +13,14 @@ class Usuario(Resource):
 
     def get(self, id):
         usuario = db.session.query(UsuarioModel).get_or_404(id)
-        return usuario.to_json()
-    #    if int(id) in USUARIOS:
-    #       return USUARIOS[int(id)]
-    #    return '', 404
+        return usuario.to_json(), 201
 
-    # Eliminar un usuario por ID
     def delete(self, id):
         usuario = db.session.query(UsuarioModel).get_or_404(id)
         db.session.delete(usuario)
         db.session.commit()
         return usuario.to_json(), 204
-        #if int(id) in USUARIOS:
-        #    del USUARIOS[int(id)]
-        #    return '', 204
-        #return '', 404
 
-    # Modificar un usuario por ID
     def put(self, id):
         usuario = db.session.query(UsuarioModel).get_or_404(id)
         data = request.get_json().items()
@@ -38,33 +29,16 @@ class Usuario(Resource):
         db.session.add(usuario)
         db.session.commit()
         return usuario.to_json() , 201
-        #if int(id) in USUARIOS:
-        #    Usuario = USUARIOS[int(id)]
-        #    data = request.get_json()
-        #    Usuario.update(data)
-        #    return '', 201
-        #return '', 404
 
-# Colección de usuarios
 class Usuarios(Resource):
-    # Obtener lista de usuarios
+
     def get(self):
 
         usuarios = db.session.query(UsuarioModel).all()
-        return jsonify([usuarios.to_json() for usuarios in usuarios])
-
-        #return USUARIOS
-
-    # Insertar un nuevo usuario
+        return jsonify([usuario.to_json_complete() for usuario in usuarios])
+    
     def post(self):
         usuarios = UsuarioModel.from_json(request.get_json())
         db.session.add(usuarios)
         db.session.commit()
         return usuarios.to_json(), 201
-
-        #Usuario = request.get_json()
-        #id = int(max(USUARIOS.keys())) + 1
-        #USUARIOS[id] = Usuario
-        #return USUARIOS[id], 201
-
-    

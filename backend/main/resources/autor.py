@@ -4,20 +4,11 @@ from .. import db
 from main.models.autor import Autor as AutorModel
 from datetime import datetime
 
-#AUTORES = {
-#    1: {'nombre': 'Juan Carlos Nieto'},
-#    2: {'nombre': 'María Isabel de las Nieves'},
-#    3: {'nombre': 'Luis Alberto Ramírez'}
-#}
-
 class Autor(Resource):
 
     def get(self, id):
         autor = db.session.query(AutorModel).get_or_404(id)
-        return autor.to_json()
-    #    if int(id) in AutoreS:
-    #       return AutoreS[int(id)]
-    #    return '', 404
+        return autor.to_json(), 201
 
     # Eliminar un Autor por ID
     def delete(self, id):
@@ -25,12 +16,7 @@ class Autor(Resource):
         db.session.delete(autor)
         db.session.commit()
         return autor.to_json(), 204
-        #if int(id) in AutoreS:
-        #    del AutoreS[int(id)]
-        #    return '', 204
-        #return '', 404
 
-    # Modificar un Autor por ID
     def put(self, id):
         autor = db.session.query(AutorModel).get_or_404(id)
         data = request.get_json().items()
@@ -43,14 +29,7 @@ class Autor(Resource):
         db.session.add(autor)
         db.session.commit()
         return autor.to_json() , 201
-        #if int(id) in AutoreS:
-        #    Autor = AutoreS[int(id)]
-        #    data = request.get_json()
-        #    Autor.update(data)
-        #    return '', 201
-        #return '', 404
 
-# Colección de Autores
 class Autores(Resource):
     # Obtener lista de Autores
     def get(self):
