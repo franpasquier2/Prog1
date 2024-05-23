@@ -78,7 +78,7 @@ class Prestamos(Resource):
 
         #Ordenao por Usuarios
         if request.args.get('sortby_nrUsuarios'):
-            animales=animales.outerjoin(PrestamoModel.usuario).group_by(PrestamoModel.id).order_by(func.count(UsuarioModel.id).desc())
+            prestamos=prestamos.outerjoin(PrestamoModel.usuario).group_by(PrestamoModel.id).order_by(func.count(UsuarioModel.id).desc())
         ### FIN FILTROS ####
         
         prestamos = prestamos.paginate(page=page, per_page=per_page, error_out=True)
