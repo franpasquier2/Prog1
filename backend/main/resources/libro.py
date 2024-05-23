@@ -49,6 +49,10 @@ class Libros(Resource):
         if request.args.get('nrAutores'):
             libros=libros.outerjoin(LibroModel.autor).group_by(LibroModel.id).having(func.count(AutorModel.id) >= int(request.args.get('nrAutores')))
         
+         #Ordenao por Autores
+        if request.args.get('sortby_nrAutores'):
+            libros=libros.outerjoin(LibroModel.autor).group_by(LibroModel.id).order_by(func.count(AutorModel.id).desc())
+        
         #Busqueda por titulo
         if request.args.get('titulo'):
             libros=libros.filter(LibroModel.titulo.like("%"+request.args.get('titulo')+"%"))
@@ -73,9 +77,7 @@ class Libros(Resource):
         if request.args.get('sortby_clasificacion'):
             libros=libros.order_by(desc(LibroModel.clasificacion))
 
-        #Ordenao por Autores
-        if request.args.get('sortby_nrAutores'):
-            animales=animales.outerjoin(LibroModel.autor).group_by(LibroModel.id).order_by(func.count(AutorModel.id).desc())
+       
         ### FIN FILTROS ####
         
         libros = libros.paginate(page=page, per_page=per_page, error_out=True)

@@ -20,7 +20,7 @@ class Notificaciones(Resource):
         
         ### FILTROS ###
         if request.args.get('nrUsuarios'):
-            notificaciones=notificaciones.outerjoin(NotificacionModel.usuario).group_by(NotificacionModel.id).having(func.count(UsuarioModel.id) >= int(request.args.get('nrUsuarios')))
+            notificaciones=notificaciones.outerjoin(NotificacionModel.usuario).group_by(NotificacionModel.id_notificacion).having(func.count(UsuarioModel.id_usuario) >= int(request.args.get('nrUsuarios')))
         
         #Busqueda por mensaje
         if request.args.get('mensaje'):
@@ -40,7 +40,7 @@ class Notificaciones(Resource):
 
         #Ordenao por Usuarios
         if request.args.get('sortby_nrUsuarios'):
-            animales=animales.outerjoin(NotificacionModel.usuario).group_by(NotificacionModel.id).order_by(func.count(UsuarioModel.id).desc())
+            notificaciones=notificaciones.outerjoin(NotificacionModel.usuario).group_by(NotificacionModel.id_notificacion).order_by(func.count(UsuarioModel.id_usuario).desc())
         ### FIN FILTROS ####
         
         

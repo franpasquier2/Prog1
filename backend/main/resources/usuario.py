@@ -31,7 +31,7 @@ class Usuarios(Resource):
     def get(self):
 
         page = 1
-        per_page = 10
+        per_page = 2
         
         usuarios = db.session.query(UsuarioModel)
         
@@ -63,11 +63,11 @@ class Usuarios(Resource):
 
         #Busqueda por name
         if request.args.get('name'):
-            prestamos=prestamos.filter(PrestamoModel.name.like("%"+request.args.get('name')+"%"))
+            usuarios=usuarios.filter(UsuarioModel.name.like("%"+request.args.get('name')+"%"))
         
         #Ordeno por name
         if request.args.get('sortby_name'):
-            prestamos=prestamos.order_by(desc(PrestamoModel.name))
+            usuarios=usuarios.order_by(desc(UsuarioModel.name))
 
         #Ordeno por id de libro 
         if request.args.get('sortby_nrLibros'):

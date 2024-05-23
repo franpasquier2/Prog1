@@ -16,7 +16,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:6003/autor/2",
+							"raw": "http://127.0.0.1:6003/autor/1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -27,7 +27,7 @@
 							"port": "6003",
 							"path": [
 								"autor",
-								"2"
+								"1"
 							]
 						}
 					},
@@ -39,7 +39,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:6003/autores",
+							"raw": "http://127.0.0.1:6003/autores?nombre=",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -50,6 +50,12 @@
 							"port": "6003",
 							"path": [
 								"autores"
+							],
+							"query": [
+								{
+									"key": "nombre",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -186,6 +192,23 @@
 							"port": "6003",
 							"path": [
 								"usuarios"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "rey",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "Pablit@gmail.com",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "Don Omar",
+									"disabled": true
+								}
 							]
 						}
 					},
@@ -253,7 +276,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"id_usuario\":\"5\", \"username\":\"rey\", \"email\":\"rey2@gmail.com\", \"password\":\"23930\", \"name\":\"Rey Lopez\"}",
+							"raw": "{\"id_usuario\":\"6\", \"username\":\"DonOmar\", \"email\":\"don2@gmail.com\", \"password\":\"23930\", \"name\":\"Don Omar\"}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -380,6 +403,28 @@
 							"port": "6003",
 							"path": [
 								"libros"
+							],
+							"query": [
+								{
+									"key": "genero",
+									"value": "Accion",
+									"disabled": true
+								},
+								{
+									"key": "titulo",
+									"value": "Terminator",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "clasificacion",
+									"value": "8",
+									"disabled": true
+								}
 							]
 						}
 					},
@@ -447,7 +492,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"id_libro\":\"2\",\"id_autor\":\"1\",\"titulo\": \"Harry Potter\",\"genero\": \"Fantasía\",\"clasificacion\":\"7\",\"id_usuario\":\"1\"}",
+							"raw": "{\"id_libro\":\"5\",\"id_autor\":\"1\",\"titulo\": \"El señor de los anillos\",\"genero\": \"Fantasía\",\"clasificacion\":\"6\",\"id_usuario\":\"5\"}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -516,6 +561,23 @@
 							"port": "6003",
 							"path": [
 								"prestamos"
+							],
+							"query": [
+								{
+									"key": "monto",
+									"value": "2500",
+									"disabled": true
+								},
+								{
+									"key": "fecha_dev",
+									"value": "2024-05-02",
+									"disabled": true
+								},
+								{
+									"key": "fecha",
+									"value": "2024-02-03",
+									"disabled": true
+								}
 							]
 						}
 					},
@@ -583,7 +645,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"id_prestamo\":\"4\",\"id_usuario\":\"4\",\"monto\":\"2500\",\"fecha_dev\":\"02-05-2024\",\"fecha\":\"02-02-2024\"}",
+							"raw": "{\"id_prestamo\":\"5\",\"id_usuario\":\"5\",\"monto\":\"2400\",\"fecha_dev\":\"02-05-2024\",\"fecha\":\"02-02-2024\"}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -629,6 +691,23 @@
 							"port": "6003",
 							"path": [
 								"notificaciones"
+							],
+							"query": [
+								{
+									"key": "mensaje",
+									"value": "Su cuenta ha sido creada correctamente",
+									"disabled": true
+								},
+								{
+									"key": "fecha_dev",
+									"value": "2024-07-05",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "10",
+									"disabled": true
+								}
 							]
 						}
 					},
@@ -641,7 +720,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"id_notificacion\":\"4\", \"id_valoracion\":\"4\", \"id_usuario\":\"4\", \"fecha_dev\":\"05-07-2024\", \"mensaje\":\"Su cuenta ha sido creada correctamente\"}",
+							"raw": "{\"id_notificacion\":\"5\", \"id_valoracion\":\"5\", \"id_usuario\":\"5\", \"fecha_dev\":\"05-07-2024\", \"mensaje\":\"Su cuenta ha sido creada correctamente\"}",
 							"options": {
 								"raw": {
 									"language": "json"
