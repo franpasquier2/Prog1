@@ -4,19 +4,28 @@ from .. import db
 from main.models.usuario import Usuario as UsuarioModel
 from sqlalchemy import func,desc
 from main.models import PrestamoModel, LibroModel
+from flask_jwt_extended import jwt_required, get_jwt_identity
+from main.auth.decorators import role_required
 
 class Usuario(Resource):
 
+    @jwt_required(optional=True)
     def get(self, id):
         usuario = db.session.query(UsuarioModel).get_or_404(id)
-        return usuario.to_json(), 201
-
+        current_identity = get_jwt_identity()
+        if current_identity:
+            return usuario.to_json_complete()
+        else:
+            return usuario.to_json()
+    
+    
+    @role_required(roles = ["admin","users"])
     def delete(self, id):
         usuario = db.session.query(UsuarioModel).get_or_404(id)
         db.session.delete(usuario)
         db.session.commit()
         return usuario.to_json(), 204
-
+    @jwt_required()
     def put(self, id):
         usuario = db.session.query(UsuarioModel).get_or_404(id)
         data = request.get_json().items()
@@ -28,10 +37,11 @@ class Usuario(Resource):
 
 class Usuarios(Resource):
 
+    @role_required(roles = ["admin"])
     def get(self):
 
         page = 1
-        per_page = 2
+        per_page = 10
         
         usuarios = db.session.query(UsuarioModel)
         

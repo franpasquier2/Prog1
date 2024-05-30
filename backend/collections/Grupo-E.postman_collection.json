@@ -3,8 +3,8 @@
 		"_postman_id": "bb4d471b-70d0-46ad-8ff9-19b17eb2ead6",
 		"name": "Grupo-E",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "33988249",
-		"_collection_link": "https://universal-rocket-765435.postman.co/workspace/Team-Workspace~11781e36-9aa6-498c-85d3-7d4545605880/collection/33777608-bb4d471b-70d0-46ad-8ff9-19b17eb2ead6?action=share&source=collection_link&creator=33988249"
+		"_exporter_id": "33777608",
+		"_collection_link": "https://universal-rocket-765435.postman.co/workspace/Team-Workspace~11781e36-9aa6-498c-85d3-7d4545605880/collection/33777608-bb4d471b-70d0-46ad-8ff9-19b17eb2ead6?action=share&source=collection_link&creator=33777608"
 	},
 	"item": [
 		{
@@ -155,10 +155,20 @@
 				{
 					"name": "ver usuario",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:6003/usuario/1",
+							"raw": "http://127.0.0.1:6003/usuario/4",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -169,7 +179,7 @@
 							"port": "6003",
 							"path": [
 								"usuario",
-								"1"
+								"4"
 							]
 						}
 					},
@@ -178,6 +188,16 @@
 				{
 					"name": "ver todos los usuarios",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNzA5OTE1NSwianRpIjoiNTcyYTMzZGYtZmIzNS00ZmE1LWE3YzUtM2ZkMGFjM2VlNmFmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NiwibmJmIjoxNzE3MDk5MTU1LCJjc3JmIjoiMzMxODM3NmMtYjlhNC00MTE3LWExOGYtMDRhMDAwY2FjYmIxIiwiZXhwIjoxNzE3MTAyNzU1LCJyb2wiOiJhZG1pbiIsImlkIjo2LCJlbWFpbCI6ImcuZGlhekBhbHVtbm8udW0uZWR1LmFyIn0.DAjBCTOAGxW0FjcDJkMgQnsFH4jpZeP4vJDgXenkPM0",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -217,10 +237,20 @@
 				{
 					"name": "eliminar usuario",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNzA5ODc5OSwianRpIjoiYTM3ZTc0MDgtNGFhOC00MDA2LWE5ZGQtZGFjNWY3NjRjMzBhIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6OCwibmJmIjoxNzE3MDk4Nzk5LCJjc3JmIjoiZmVjZDY3OGYtZWRjZi00MTc2LTk0NmEtY2UwYmNlNjkzMTk0IiwiZXhwIjoxNzE3MTAyMzk5LCJyb2wiOiJ1c2VycyIsImlkIjo4LCJlbWFpbCI6ImoucGFsYXp6b0BhbHVtbm8udW0uZWR1LmFyIn0.vT4XmzgMLCiJWD74zs2FTjXh-LPQD1CZk-mOqHCR16s",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:6003/usuario/2",
+							"raw": "http://127.0.0.1:6003/usuario/6",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -231,7 +261,7 @@
 							"port": "6003",
 							"path": [
 								"usuario",
-								"2"
+								"6"
 							]
 						}
 					},
@@ -392,7 +422,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:6003/libros",
+							"raw": "http://127.0.0.1:6003/libros?id_Autores=2",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -406,24 +436,18 @@
 							],
 							"query": [
 								{
-									"key": "genero",
-									"value": "Accion",
-									"disabled": true
-								},
-								{
-									"key": "titulo",
+									"key": " titulo",
 									"value": "Terminator",
 									"disabled": true
 								},
 								{
-									"key": "per_page",
-									"value": "2",
+									"key": "genero",
+									"value": "CIencia Ficcion",
 									"disabled": true
 								},
 								{
-									"key": "clasificacion",
-									"value": "8",
-									"disabled": true
+									"key": "id_Autores",
+									"value": "2"
 								}
 							]
 						}
@@ -694,18 +718,18 @@
 							],
 							"query": [
 								{
-									"key": "mensaje",
-									"value": "Su cuenta ha sido creada correctamente",
-									"disabled": true
-								},
-								{
 									"key": "fecha_dev",
-									"value": "2024-07-05",
+									"value": null,
 									"disabled": true
 								},
 								{
-									"key": "per_page",
-									"value": "10",
+									"key": "mensaje",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "id_usuario",
+									"value": "1",
 									"disabled": true
 								}
 							]
@@ -967,6 +991,75 @@
 							"port": "5000",
 							"path": [
 								"comentarios"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"email\" : \"g.diaz@alumno.um.edu.ar\",\n\"password\" : \"000001\",\n\"name\": \"Gabriel Diaz\",\n\"username\" : \"Gabigol\",\n\"id_usuario\" : \"6\",\n\"rol\" : \"admin\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:6003/auth/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "6003",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"email\" : \"g.diaz@alumno.um.edu.ar\",\n\"password\" : \"000001\"}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:6003/auth/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "6003",
+							"path": [
+								"auth",
+								"login"
 							]
 						}
 					},
