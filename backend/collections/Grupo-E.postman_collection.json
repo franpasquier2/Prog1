@@ -3,8 +3,8 @@
 		"_postman_id": "bb4d471b-70d0-46ad-8ff9-19b17eb2ead6",
 		"name": "Grupo-E",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "33777608",
-		"_collection_link": "https://universal-rocket-765435.postman.co/workspace/Team-Workspace~11781e36-9aa6-498c-85d3-7d4545605880/collection/33777608-bb4d471b-70d0-46ad-8ff9-19b17eb2ead6?action=share&source=collection_link&creator=33777608"
+		"_exporter_id": "33988249",
+		"_collection_link": "https://universal-rocket-765435.postman.co/workspace/Team-Workspace~11781e36-9aa6-498c-85d3-7d4545605880/collection/33777608-bb4d471b-70d0-46ad-8ff9-19b17eb2ead6?action=share&source=collection_link&creator=33988249"
 	},
 	"item": [
 		{
@@ -187,19 +187,31 @@
 				},
 				{
 					"name": "ver todos los usuarios",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNzA5OTE1NSwianRpIjoiNTcyYTMzZGYtZmIzNS00ZmE1LWE3YzUtM2ZkMGFjM2VlNmFmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NiwibmJmIjoxNzE3MDk5MTU1LCJjc3JmIjoiMzMxODM3NmMtYjlhNC00MTE3LWExOGYtMDRhMDAwY2FjYmIxIiwiZXhwIjoxNzE3MTAyNzU1LCJyb2wiOiJhZG1pbiIsImlkIjo2LCJlbWFpbCI6ImcuZGlhekBhbHVtbm8udW0uZWR1LmFyIn0.DAjBCTOAGxW0FjcDJkMgQnsFH4jpZeP4vJDgXenkPM0",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNzY4MzI5NSwianRpIjoiNjE1NjRhNGUtNzJkZS00MjczLWIyYjUtZDQzNjcwZTNhNWE3IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NiwibmJmIjoxNzE3NjgzMjk1LCJjc3JmIjoiOTJlODNmOTAtNjg1Zi00MDQ2LTljZjItN2I5NDQyYzA0YTJkIiwiZXhwIjoxNzE3Njg2ODk1LCJyb2wiOiJhZG1pbiIsImlkIjo2LCJlbWFpbCI6ImcuZGlhekBhbHVtbm8udW0uZWR1LmFyIn0.RNabS4V8nKXqvS6DrYBCDWQAQCdA1EXD_OiNw1-5lkA",
 									"type": "string"
 								}
 							]
 						},
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://127.0.0.1:6003/usuarios",
 							"protocol": "http",
@@ -1008,7 +1020,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"email\" : \"g.diaz@alumno.um.edu.ar\",\n\"password\" : \"000001\",\n\"name\": \"Gabriel Diaz\",\n\"username\" : \"Gabigol\",\n\"id_usuario\" : \"6\",\n\"rol\" : \"admin\"}",
+							"raw": "{\"email\" : \"grupoe20242@gmail.com\",\n\"password\" : \"Fl20042004\",\n\"name\": \"GrupoE\",\n\"username\" : \"GrupitoE\",\n\"id_usuario\" : \"9\",\n\"rol\" : \"admin\"}",
 							"options": {
 								"raw": {
 									"language": "json"

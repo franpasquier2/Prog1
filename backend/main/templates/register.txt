@@ -1,0 +1,7 @@
+Bienvenido {{usuario.username}} {{usuario.email}}!
+
+Gracias por registrarte en nuestro sistema.
+
+Con nuestro servicio podras:
+
+- Ver tus datos
