@@ -4,3 +4,4 @@ flask-restful
 flask-sqlalchemy
 flask_jwt_extended
 flask_migrate
+flask_mail
