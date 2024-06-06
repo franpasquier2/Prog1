@@ -41,7 +41,7 @@ def register():
             #Agregar usuario a DB
             db.session.add(usuario)
             db.session.commit()
-            print("1")
+            
             send = sendMail([usuario.email],"Welcome!",'register',usuario = usuario)
         except Exception as error:
             db.session.rollback()

@@ -6,7 +6,7 @@ from smtplib import SMTPException #Viene con flask
 #La funcion pide al menos 3 atributos: to a quien envio, subjet asunto del mail y el template 
 def sendMail(to, subject, template, **kwargs):
     #Configuracion del mail
-    print("2")
+    
     msg = Message( subject, sender=current_app.config['FLASKY_MAIL_SENDER'], recipients=to)
     try:
         #Creación del cuerpo del mensaje
@@ -14,7 +14,7 @@ def sendMail(to, subject, template, **kwargs):
         msg.html = render_template(template + '.html', **kwargs)
         #Envío de mail
         result = mailsender.send(msg)
-        print("3")
+        
     except SMTPException as e:
         print(str(e))
         return "Mail deliver failed"
